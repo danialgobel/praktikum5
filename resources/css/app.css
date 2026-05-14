@@ -9,3 +9,49 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+html {
+    background: radial-gradient(circle at 50% 10%, rgba(255,255,255,0.08), transparent 20%),
+        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.06), transparent 12%),
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05), transparent 14%),
+        linear-gradient(180deg, #020716 0%, #040813 35%, #020611 100%);
+}
+
+body {
+    color: #e2e8f0;
+}
+
+.glow-panel {
+    position: relative;
+    background: rgba(10, 14, 30, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 80px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(18px);
+}
+
+.glow-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 18%);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.glow-panel > * {
+    position: relative;
+    z-index: 1;
+}
+
+.glow-pill {
+    width: 4.5rem;
+    height: 0.45rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.glow-border {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}

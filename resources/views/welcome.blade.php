@@ -3,37 +3,35 @@
 @section('title', 'Beranda')
 
 @section('content')
-    <section class="space-y-8">
-        <div class="rounded-[2rem] border border-slate-700 bg-slate-900/90 p-8 shadow-2xl shadow-slate-950/40">
+    <section class="space-y-10">
+        <div class="glow-panel rounded-[2rem] p-10">
             <div class="max-w-3xl space-y-6">
-                <h1 class="text-5xl font-semibold text-white">Praktikum Routing</h1>
-                <p class="text-slate-300 leading-8">Aplikasi web yang menunjukkan implementasi routing dinamis dengan Laravel.</p>
+                <p class="text-xs uppercase tracking-[0.36em] text-slate-400">SPACE GRID</p>
+                <h1 class="text-5xl font-semibold text-white sm:text-6xl">Routing Control Center</h1>
+                <p class="text-slate-300 leading-8">Antarmuka praktikum Laravel dengan tema sci-fi dan efek glow putih.</p>
             </div>
         </div>
 
-        <div class="rounded-[2rem] border border-slate-700 bg-slate-900/90 p-8 shadow-2xl shadow-slate-950/40">
-            <h2 class="text-2xl font-semibold text-white mb-6">Routes</h2>
-            <div class="grid gap-4 sm:grid-cols-2">
-                <div class="rounded-3xl bg-slate-950/70 p-6">
-                    <p class="text-white font-semibold text-lg">Home</p>
-                    <p class="text-slate-400 mt-2">/</p>
-                </div>
-                <div class="rounded-3xl bg-slate-950/70 p-6">
-                    <p class="text-white font-semibold text-lg">About</p>
-                    <p class="text-slate-400 mt-2">/about</p>
-                </div>
-                <div class="rounded-3xl bg-slate-950/70 p-6">
-                    <p class="text-white font-semibold text-lg">User</p>
-                    <p class="text-slate-400 mt-2">/user/{name}</p>
-                </div>
-                <div class="rounded-3xl bg-slate-950/70 p-6">
-                    <p class="text-white font-semibold text-lg">Product</p>
-                    <p class="text-slate-400 mt-2">/product/{id}</p>
-                </div>
-                <div class="rounded-3xl bg-slate-950/70 p-6 sm:col-span-2">
-                    <p class="text-white font-semibold text-lg">City</p>
-                    <p class="text-slate-400 mt-2">/city/{name}</p>
-                </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+            <div class="glow-panel rounded-[2rem] p-8">
+                <p class="text-sm text-slate-400">Home</p>
+                <p class="mt-4 text-3xl font-semibold text-white">/</p>
+            </div>
+            <div class="glow-panel rounded-[2rem] p-8">
+                <p class="text-sm text-slate-400">About</p>
+                <p class="mt-4 text-3xl font-semibold text-white">/about</p>
+            </div>
+            <div class="glow-panel rounded-[2rem] p-8">
+                <p class="text-sm text-slate-400">User</p>
+                <p class="mt-4 text-3xl font-semibold text-white">/user/{name}</p>
+            </div>
+            <div class="glow-panel rounded-[2rem] p-8">
+                <p class="text-sm text-slate-400">Product</p>
+                <p class="mt-4 text-3xl font-semibold text-white">/product/{id}</p>
+            </div>
+            <div class="glow-panel rounded-[2rem] p-8 sm:col-span-2">
+                <p class="text-sm text-slate-400">City</p>
+                <p class="mt-4 text-3xl font-semibold text-white">/city/{name}</p>
             </div>
         </div>
     </section>

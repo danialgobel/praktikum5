@@ -3,10 +3,11 @@
 @section('title', 'About')
 
 @section('content')
-    <section class="rounded-[2rem] border border-slate-700 bg-slate-900/90 p-8 shadow-2xl shadow-slate-950/40">
+    <section class="glow-panel rounded-[2rem] p-10">
         <div class="space-y-6">
-            <h1 class="text-4xl font-semibold text-white">Tentang</h1>
-            <p class="text-slate-300 leading-8">Aplikasi ini merupakan implementasi praktikum routing Laravel 11. Menunjukkan penggunaan route dasar dan route dengan parameter dinamis.</p>
+            <p class="text-xs uppercase tracking-[0.36em] text-slate-400">MISSION BRIEF</p>
+            <h1 class="text-5xl font-semibold text-white">About</h1>
+            <p class="text-slate-300 leading-8">Implementasi praktikum routing Laravel 11 dengan estetika luar angkasa dan tampilan modern.</p>
         </div>
     </section>
 @endsection
