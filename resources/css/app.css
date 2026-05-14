@@ -21,12 +21,24 @@ body {
     color: #e2e8f0;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 45px 45px, 18px 18px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: -1;
+}
+
 .glow-panel {
     position: relative;
-    background: rgba(10, 14, 30, 0.88);
+    background: rgba(10, 14, 30, 0.92);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 25px 80px rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(20px);
 }
 
 .glow-panel::before {
@@ -34,9 +46,9 @@ body {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 24%),
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 22%),
         radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 18%);
-    opacity: 0.3;
+    opacity: 0.28;
     pointer-events: none;
 }
 
@@ -54,4 +66,47 @@ body {
 
 .glow-border {
     border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.route-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 65px rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
+    transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.route-card::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 25%);
+    filter: blur(18px);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.route-card::after {
+    content: '';
+    position: absolute;
+    inset: -20% 40% auto auto;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 55%);
+    filter: blur(12px);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.route-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 24px 90px rgba(255, 255, 255, 0.1);
+}
+
+.route-card > * {
+    position: relative;
+    z-index: 1;
 }
