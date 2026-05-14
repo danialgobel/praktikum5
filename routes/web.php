@@ -2,27 +2,29 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route utama untuk halaman welcome
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-// Route untuk halaman about
 Route::get('/about', function () {
-    return "Ini adalah halaman About";
-});
+    return view('about');
+})->name('about');
 
-// Route dengan parameter nama user
 Route::get('/user/{name}', function ($name) {
-    return "Halo, $name!";
-});
+    return view('user', [
+        'name' => $name,
+    ]);
+})->name('user');
 
-// Route untuk menampilkan produk berdasarkan ID
 Route::get('/product/{id}', function ($id) {
-    return "Produk dengan ID: $id";
-});
+    return view('product', [
+        'id' => $id,
+    ]);
+})->name('product');
 
-// Route untuk menampilkan informasi kota
 Route::get('/city/{name}', function ($name) {
-    return "Kota: $name";
-});
+    return view('city', [
+        'name' => $name,
+    ]);
+})->name('city');
+
