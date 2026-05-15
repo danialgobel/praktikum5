@@ -11,34 +11,41 @@
 }
 
 html {
-    background: radial-gradient(circle at 50% 10%, rgba(255,255,255,0.08), transparent 20%),
-        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.06), transparent 12%),
-        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05), transparent 14%),
-        linear-gradient(180deg, #020716 0%, #040813 35%, #020611 100%);
+    background: radial-gradient(circle at 50% 10%, rgba(255,255,255,0.05), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.03), transparent 20%),
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.02), transparent 25%),
+        linear-gradient(180deg, #0a0a0a 0%, #111111 35%, #0a0a0a 100%);
 }
 
 body {
-    color: #e2e8f0;
+    color: #f3f4f6;
 }
 
 body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.18) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 45px 45px, 18px 18px;
-    opacity: 0.08;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px, 20px 20px;
+    opacity: 0.15;
     pointer-events: none;
     z-index: -1;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
 .glow-panel {
     position: relative;
-    background: rgba(10, 14, 30, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 25px 80px rgba(255, 255, 255, 0.05);
+    background: rgba(17, 24, 39, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 80px rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
+    transition: all 0.5s ease;
 }
 
 .glow-panel::before {
@@ -46,10 +53,16 @@ body::before {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 22%),
-        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 18%);
-    opacity: 0.28;
+    background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.15), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.1), transparent 30%);
+    opacity: 0.6;
     pointer-events: none;
+    animation: glow-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+    0% { opacity: 0.4; }
+    100% { opacity: 0.8; }
 }
 
 .glow-panel > * {
@@ -57,56 +70,56 @@ body::before {
     z-index: 1;
 }
 
-.glow-pill {
-    width: 4.5rem;
-    height: 0.45rem;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.12);
-}
-
-.glow-border {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
 .route-card {
     position: relative;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 20px 65px rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 65px rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(16px);
-    transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .route-card::before {
     content: '';
     position: absolute;
     inset: -20%;
-    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 25%);
-    filter: blur(18px);
-    opacity: 0.6;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 30%);
+    filter: blur(20px);
+    opacity: 0.5;
     pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.route-card:hover::before {
+    opacity: 0.8;
 }
 
 .route-card::after {
     content: '';
     position: absolute;
-    inset: -20% 40% auto auto;
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 55%);
-    filter: blur(12px);
-    opacity: 0.7;
+    inset: -20% 50% auto auto;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.06), transparent 60%);
+    filter: blur(15px);
+    opacity: 0.4;
     pointer-events: none;
+    animation: rotate-glow 15s linear infinite;
 }
 
-.route-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.16);
-    box-shadow: 0 24px 90px rgba(255, 255, 255, 0.1);
+@keyframes rotate-glow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .route-card > * {
     position: relative;
     z-index: 1;
+}
+
+.route-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 30px 100px rgba(59, 130, 246, 0.15);
 }

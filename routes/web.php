@@ -1,30 +1,15 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/about', [PageController::class, 'about'])->name('about');
 
-Route::get('/user/{name}', function ($name) {
-    return view('user', [
-        'name' => $name,
-    ]);
-})->name('user');
+Route::get('/user/{name}', [PageController::class, 'user'])->name('user');
 
-Route::get('/product/{id}', function ($id) {
-    return view('product', [
-        'id' => $id,
-    ]);
-})->name('product');
+Route::get('/product/{id}', [PageController::class, 'product'])->name('product');
 
-Route::get('/city/{name}', function ($name) {
-    return view('city', [
-        'name' => $name,
-    ]);
-})->name('city');
+Route::get('/city/{name}', [PageController::class, 'city'])->name('city');
 

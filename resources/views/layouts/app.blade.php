@@ -6,28 +6,27 @@
         <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
         @vite(['resources/css/app.css'])
     </head>
-    <body class="min-h-screen bg-slate-950 text-slate-100">
+    <body class="min-h-screen bg-gray-950 text-gray-100">
         <div class="relative overflow-hidden">
-            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_18%),radial-gradient(circle_at_70%_10%,rgba(255,255,255,0.05),transparent_10%),radial-gradient(circle_at_25%_75%,rgba(255,255,255,0.04),transparent_14%)]"></div>
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_50%),radial-gradient(circle_at_bottom,rgba(255,255,255,0.03),transparent_50%)]"></div>
             <div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8 relative">
-                <header class="mb-8 overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-[0_0_80px_rgba(255,255,255,0.06)] backdrop-blur-xl">
-                    <div class="pointer-events-none absolute inset-x-10 top-0 h-28 rounded-b-[3rem] bg-white/5 blur-3xl"></div>
-                    <div class="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <header class="mb-8 overflow-hidden rounded-2xl border border-gray-700 bg-gray-900/90 p-6 shadow-2xl backdrop-blur-md">
+                    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
-                            <a href="{{ route('home') }}" class="inline-block text-3xl font-semibold tracking-[0.12em] text-white">Praktikum 5</a>
-                            <p class="mt-2 text-sm text-slate-400">Sci-fi routing interface.</p>
+                            <h1 class="text-3xl font-bold text-white">Praktikum 5</h1>
+                            <p class="mt-2 text-sm text-gray-400">Postest Rekayasa Web</p>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <span class="glow-pill"></span>
-                            <span class="glow-pill"></span>
+                        <div class="flex items-center gap-2">
+                            <div class="h-3 w-3 rounded-full bg-blue-500 animate-pulse"></div>
+                            <div class="h-3 w-3 rounded-full bg-green-500 animate-pulse"></div>
                         </div>
                     </div>
                     <nav class="mt-6 flex flex-wrap gap-3">
-                        <a href="{{ route('home') }}" class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100 transition hover:border-white/20 hover:bg-white/10">Home</a>
-                        <a href="{{ route('about') }}" class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100 transition hover:border-white/20 hover:bg-white/10">About</a>
-                        <a href="{{ route('user', ['name' => 'Danial']) }}" class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100 transition hover:border-white/20 hover:bg-white/10">User</a>
-                        <a href="{{ route('product', ['id' => 123]) }}" class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100 transition hover:border-white/20 hover:bg-white/10">Product</a>
-                        <a href="{{ route('city', ['name' => 'Jakarta']) }}" class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100 transition hover:border-white/20 hover:bg-white/10">City</a>
+                        <a href="{{ route('home') }}" class="rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 {{ request()->routeIs('home') ? 'bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25' : 'bg-gray-700 text-gray-200 hover:bg-gray-600 hover:scale-105 hover:shadow-lg' }}">Home</a>
+                        <a href="{{ route('about') }}" class="rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 {{ request()->routeIs('about') ? 'bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25' : 'bg-gray-700 text-gray-200 hover:bg-gray-600 hover:scale-105 hover:shadow-lg' }}">About</a>
+                        <a href="{{ route('user', ['name' => 'Danial']) }}" class="rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 {{ request()->routeIs('user') ? 'bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25' : 'bg-gray-700 text-gray-200 hover:bg-gray-600 hover:scale-105 hover:shadow-lg' }}">User</a>
+                        <a href="{{ route('product', ['id' => 123]) }}" class="rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 {{ request()->routeIs('product') ? 'bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25' : 'bg-gray-700 text-gray-200 hover:bg-gray-600 hover:scale-105 hover:shadow-lg' }}">Product</a>
+                        <a href="{{ route('city', ['name' => 'Yogyakarta']) }}" class="rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 {{ request()->routeIs('city') ? 'bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25' : 'bg-gray-700 text-gray-200 hover:bg-gray-600 hover:scale-105 hover:shadow-lg' }}">City</a>
                     </nav>
                 </header>
 
@@ -35,8 +34,8 @@
                     @yield('content')
                 </main>
 
-                <footer class="mt-10 border-t border-white/10 pt-5 text-sm text-slate-500">
-                    <p>Laravel 11 | PHP 8.3 | Routing demo</p>
+                <footer class="mt-10 border-t border-gray-700 pt-5 text-sm text-gray-500">
+                    <p>Laravel 11 | PHP 8.3 | Postest Routing</p>
                 </footer>
             </div>
         </div>
