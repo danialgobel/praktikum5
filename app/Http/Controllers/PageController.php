@@ -34,15 +34,8 @@ class PageController extends Controller
 
     public function city(string $name)
     {
-        $city = City::where('name', ucfirst($name))->first();
-
-        if (! $city) {
-            abort(404, 'City not found');
-        }
-
         return view('city', [
-            'name' => $city->name,
-            'description' => $city->description,
+            'name' => ucfirst($name),
         ]);
     }
 }
